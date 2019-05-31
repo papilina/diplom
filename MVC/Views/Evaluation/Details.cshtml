@@ -1,0 +1,22 @@
+﻿@model MVC.Models.Evaluation
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Подробности</h2>
+
+<div>
+    <h4>Оценка</h4>
+    <hr />
+    <dl>
+        <dt>Оценка</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Value)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Изменить</a> |
+    <a asp-action="Index">Вернуться к списку</a>
+</div>

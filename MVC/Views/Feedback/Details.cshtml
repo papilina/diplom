@@ -1,0 +1,34 @@
+﻿@model MVC.Models.Feedback
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Подробности</h2>
+
+<div>
+    <h4>Отзыв</h4>
+    <hr />
+    <dl>
+        <dt>Дата</dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateFeedback)
+        </dd>
+        <dt>Текст</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Text)
+        </dd>
+        <dt>Пользователь</dt>
+        <dd>
+            @Html.DisplayFor(model => model.User.Login)
+        </dd>
+        <dt>Место</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Place.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Изменить</a> |
+    <a asp-action="Index">Вернуться к списку</a>
+</div>

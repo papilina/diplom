@@ -1,0 +1,30 @@
+﻿@model MVC.Models.Visit
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Подробности</h2>
+
+<div>
+    <h4>Посещение</h4>
+    <hr />
+    <dl>
+        <dt>Пользователь</dt>
+        <dd>
+            @Html.DisplayFor(model => model.User.Login)
+        </dd>
+        <dt>Место</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Place.Name)
+        </dd>
+        <dt>Дата</dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateVisit)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Изменить</a> |
+    <a asp-action="Index">Вернуться к списку</a>
+</div>

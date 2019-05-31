@@ -1,0 +1,60 @@
+﻿@model MVC.Models.Place
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Создать</h2>
+
+<h4>Место</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Название</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Адрес</label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Сайт</label>
+                <input asp-for="Site" class="form-control" />
+                <span asp-validation-for="Site" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Тип места</label>
+                @Html.DropDownList("PlaceTypeId", ViewBag.PlaceTypes, "Выберите тип места",
+                                    htmlAttributes: new { @class = "form-control" })
+                <span asp-validation-for="PlaceTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Район</label>
+                @Html.DropDownList("AreaId", ViewBag.Areas, "Выберите район",
+                                    htmlAttributes: new { @class = "form-control" })
+                <span asp-validation-for="AreaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Вернуться к списку</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

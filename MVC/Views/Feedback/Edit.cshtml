@@ -1,0 +1,49 @@
+﻿@model MVC.Models.Feedback
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Изменить</h2>
+
+<h4>Отзыв</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label class="control-label">Дата</label>
+                <input asp-for="DateFeedback" class="form-control" />
+                <span asp-validation-for="DateFeedback" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Пользователь</label>
+                <select asp-for="UserId" class="form-control" asp-items="ViewBag.Users"></select>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Место</label>
+                <select asp-for="PlaceId" class="form-control" asp-items="ViewBag.Places"></select>
+                <span asp-validation-for="PlaceId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Текст</label>
+                <input asp-for="Text" class="form-control" />
+                <span asp-validation-for="Text" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Вернуться к списку</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

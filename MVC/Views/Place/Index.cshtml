@@ -1,0 +1,68 @@
+﻿@model IEnumerable<MVC.Models.Place>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Места</h2>
+
+<p>
+    <a asp-action="Create">Создать</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Адрес</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>Сайт</th>
+            <th>Район</th>
+            <th>Тип места</th>
+            <th>Начало работы</th>
+            <th>Конец работы</th>
+            <th>Телефон</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    string startWorkValue = item.StartWork.ToShortTimeString();
+    string endWorkValue = item.EndWork.ToShortTimeString();
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Site)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Area.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlaceType.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => startWorkValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => endWorkValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Подробности</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

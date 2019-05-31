@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Главная</h2>
+
+<p>Сайт предназначен для поиска мероприятий и мест отдыха города Воронежа.</p>
+
+<div class="row">
+    <div class="col-md-4">
+
+        <div class="form-group">
+            <label class="control-label">Район</label>
+            @Html.DropDownList("Id", ViewBag.Areas, "Выберите район",
+                                     htmlAttributes: new { @class = "form-control", onchange = "window.location.href = '/Home/DetailArea/' + this.options[this.selectedIndex].value; " })
+        </div>
+
+    </div>
+</div>
