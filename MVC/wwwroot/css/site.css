@@ -46,4 +46,7 @@ dl dt {
     padding-left: 0;
     padding-right: 0;
     font-size: 16px;
+    background-image: url(../images/spartak.jpg);
+    background-repeat: no-repeat;
+    white-space: normal;
 }
