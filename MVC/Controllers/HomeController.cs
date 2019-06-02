@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using MVC.Models;
 using MVC.ViewModels;
 
@@ -21,24 +22,10 @@ namespace MVC.Controllers
         public IActionResult Index()
         {
             ViewBag.Areas = new SelectList(db.Areas, "Id", "Name");
-            return View();
-        }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
+            return View(db.Areas.ToList());
         }
 
         public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
         {
             return View();
         }
@@ -49,20 +36,25 @@ namespace MVC.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public  IActionResult DetailArea(int Id)
-        {
-            Area area = db.Areas.FirstOrDefault(s => s.Id == Id);
-            IEnumerable<PlaceType> placeTypes = db.PlaceTypes.ToList();
-
-            DetailAreaModel dam = new DetailAreaModel { Area = area, PlaceTypes = placeTypes };
-            return View(dam);
-        }
-
         [HttpPost]
         public IActionResult IndexPlaceInArea()
         {
-            var form = Request.Form;
-            return View();
+            var areaId = Int32.Parse(Request.Form["areaId"][0]);
+            Area area = db.Areas.FirstOrDefault(s => s.Id == areaId);
+
+            var placetypeId = Int32.Parse(Request.Form["placetypeId"][0]);
+            var places = db.Places.Include(s => s.PlaceType).Where(s => s.AreaId == areaId && s.PlaceTypeId == placetypeId);
+
+            IndexPlaceInArea vm = new IndexPlaceInArea { Areas = db.Areas.ToList(), Places = places, AreaId = areaId, PlacetypeId = placetypeId };
+            return View(vm);
+        }
+
+        public IActionResult Events()
+        {
+            var placeTypes = db.PlaceTypes.ToList();
+            var areas = db.Areas.ToList();
+            IndexEventsViewModel evm = new IndexEventsViewModel { Areas = areas, PlaceTypes = placeTypes };
+            return View(evm);
         }
     }
 }

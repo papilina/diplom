@@ -8,8 +8,9 @@ namespace MVC.ViewModels
 {
     public class IndexPlaceInArea
     {
-        public int Id { get; set; }
         public IEnumerable<Place> Places { get; set; }
-        public Area Area { get; set; }
+        public IEnumerable<Area> Areas { get; set; }
+        public int AreaId { get; set; }
+        public int PlacetypeId { get; set; }
     }
 }

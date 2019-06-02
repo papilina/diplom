@@ -22,8 +22,5 @@ namespace MVC.Models
         {
             Database.EnsureCreated();
         }
-
-        public DbSet<MVC.ViewModels.IndexPlaceInArea> IndexPlaceInArea { get; set; }
-
     }
 }

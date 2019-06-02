@@ -10,6 +10,11 @@
     <h4>Место</h4>
     <hr />
     <dl>
+        @{
+            string startWorkValue = @Model.StartWork.ToShortTimeString();
+            string endWorkValue = @Model.EndWork.ToShortTimeString();
+        }
+
         <dt>Название</dt>
         <dd>
             @Html.DisplayFor(model => model.Name)
@@ -38,11 +43,11 @@
         </dd>
         <dt>Начало работы</dt>
         <dd>
-            @Html.DisplayFor(model => model.StartWork.ToShortTimeString())
+            @Html.DisplayFor(model => startWorkValue)
         </dd>
         <dt>Конец работы</dt>
         <dd>
-            @Html.DisplayFor(model => model.EndWork)
+            @Html.DisplayFor(model => endWorkValue)
         </dd>
         <dt>Телефон</dt>
         <dd>
