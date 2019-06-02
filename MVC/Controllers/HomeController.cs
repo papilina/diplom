@@ -60,5 +60,29 @@ namespace MVC.Controllers
             IndexEventsViewModel evm = new IndexEventsViewModel { Areas = areas, PlaceTypes = placeTypes };
             return View(evm);
         }
+
+        public IActionResult Find()
+        {
+            var areaId = Int32.Parse(Request.Form["AreaId"][0]);
+            var placetypeId = Int32.Parse(Request.Form["PlacetypeId"][0]);
+            var openNow = Request.Form["OpenNow"][0];
+            var places = db.Places.Include(s => s.PlaceType).Where(s => s.AreaId == areaId && s.PlaceTypeId == placetypeId);
+
+            var currentTime = DateTime.Now.TimeOfDay;
+
+            var areas = db.Areas.ToList();
+
+            if (openNow == "true")
+            {
+            var open_places = from p in places
+                              where currentTime >= p.StartWork.TimeOfDay && currentTime < p.EndWork.TimeOfDay
+                              select p;
+                places = open_places;
+            }
+
+            IndexPlaceInArea vm = new IndexPlaceInArea { Areas = areas, Places = places, AreaId = areaId, PlacetypeId = placetypeId };
+
+            return View("IndexPlaceInArea", vm);
+        }
     }
 }

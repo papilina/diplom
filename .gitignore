@@ -1,2 +1,4 @@
 .vc/*
 MVC/obj/*
+.vc/
+MVC/obj/

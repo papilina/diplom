@@ -10,5 +10,8 @@ namespace MVC.ViewModels
     {
         public IEnumerable<Area> Areas { get; set; }
         public IEnumerable<PlaceType> PlaceTypes { get; set; }
+        public bool OpenNow { get; set; }
+        public int AreaId { get; set; }
+        public int PlacetypeId { get; set; }
     }
 }

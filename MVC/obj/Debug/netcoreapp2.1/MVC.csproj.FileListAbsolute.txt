@@ -340,3 +340,5 @@ C:\Users\Денис\source\repos\diplom\MVC\obj\Debug\netcoreapp2.1\MVC.pdb
 C:\Users\Денис\source\repos\diplom\MVC\obj\Debug\netcoreapp2.1\MVC.csproj.CopyComplete
 C:\MVC\MVC\obj\Debug\netcoreapp2.1\Razor\Views\Home\Events.g.cshtml.cs
 C:\MVC\MVC\obj\Debug\netcoreapp2.1\Razor\Views\Home\Help.g.cshtml.cs
+C:\Users\Денис\source\repos\diplom\MVC\obj\Debug\netcoreapp2.1\Razor\Views\Home\Help.g.cshtml.cs
+C:\Users\Денис\source\repos\diplom\MVC\obj\Debug\netcoreapp2.1\Razor\Views\Home\Find.g.cshtml.cs
