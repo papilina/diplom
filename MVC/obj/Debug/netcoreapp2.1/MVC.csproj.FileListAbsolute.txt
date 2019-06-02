@@ -236,12 +236,9 @@ C:\MVC\MVC\obj\Debug\netcoreapp2.1\Razor\Views\Feedback\Delete.g.cshtml.cs
 C:\MVC\MVC\obj\Debug\netcoreapp2.1\Razor\Views\Feedback\Details.g.cshtml.cs
 C:\MVC\MVC\obj\Debug\netcoreapp2.1\Razor\Views\Feedback\Edit.g.cshtml.cs
 C:\MVC\MVC\obj\Debug\netcoreapp2.1\Razor\Views\Feedback\Index.g.cshtml.cs
-C:\MVC\MVC\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
 C:\MVC\MVC\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
-C:\MVC\MVC\obj\Debug\netcoreapp2.1\Razor\Views\Home\DetailArea.g.cshtml.cs
 C:\MVC\MVC\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
 C:\MVC\MVC\obj\Debug\netcoreapp2.1\Razor\Views\Home\IndexPlaceInArea.g.cshtml.cs
-C:\MVC\MVC\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
 C:\MVC\MVC\obj\Debug\netcoreapp2.1\Razor\Views\PlaceType\Create.g.cshtml.cs
 C:\MVC\MVC\obj\Debug\netcoreapp2.1\Razor\Views\PlaceType\Delete.g.cshtml.cs
 C:\MVC\MVC\obj\Debug\netcoreapp2.1\Razor\Views\PlaceType\Details.g.cshtml.cs
@@ -341,3 +338,5 @@ C:\Users\Денис\source\repos\diplom\MVC\obj\Debug\netcoreapp2.1\MVC.Views.pd
 C:\Users\Денис\source\repos\diplom\MVC\obj\Debug\netcoreapp2.1\MVC.dll
 C:\Users\Денис\source\repos\diplom\MVC\obj\Debug\netcoreapp2.1\MVC.pdb
 C:\Users\Денис\source\repos\diplom\MVC\obj\Debug\netcoreapp2.1\MVC.csproj.CopyComplete
+C:\MVC\MVC\obj\Debug\netcoreapp2.1\Razor\Views\Home\Events.g.cshtml.cs
+C:\MVC\MVC\obj\Debug\netcoreapp2.1\Razor\Views\Home\Help.g.cshtml.cs
