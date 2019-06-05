@@ -9,7 +9,7 @@ namespace MVC.Models
     public class Area
     {
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Не указано название")]
         public string Name { get; set; }
     }
 }

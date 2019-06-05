@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MVC</title>
+    <title>@ViewData["Title"] - Интерактивная афиша Воронежа</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -20,20 +20,21 @@
     <nav class="navbar navbar-inverse">
         <a asp-controller="Home" asp-action="Index">
             <img src="~/images/bootstrap-solid.svg" width="50" height="50">
-            MVC
+            Интерактивная афиша Воронежа
         </a>
     </nav>
     <nav class="col-md-2 navbar navbar-inverse">
         <div class="navbar-collapse collapse">
             <ul class="nav flex-column">
                 <li><a asp-controller="Home" asp-action="Index">Главная</a></li>
-                <li><a asp-controller="User" asp-action="Index">Пользователи</a></li>
+                <li><a asp-controller="Home" asp-action="Events">Мероприятия</a></li>
+                @*  <li><a asp-controller="User" asp-action="Index">Пользователи</a></li>*@
                 <li><a asp-controller="Area" asp-action="Index">Районы</a></li>
-                <li><a asp-controller="Evaluation" asp-action="Index">Оценка</a></li>
-                <li><a asp-controller="Feedback" asp-action="Index">Отзыв</a></li>
+                @* <li><a asp-controller="Evaluation" asp-action="Index">Оценка</a></li>
+        <li><a asp-controller="Feedback" asp-action="Index">Отзыв</a></li>*@
                 <li><a asp-controller="Place" asp-action="Index">Места</a></li>
                 <li><a asp-controller="PlaceType" asp-action="Index">Типы мест</a></li>
-                <li><a asp-controller="Visit" asp-action="Index">Посещение</a></li>
+                @* <li><a asp-controller="Visit" asp-action="Index">Посещение</a></li>*@
                 <li><a asp-controller="Home" asp-action="Contact">О разработчике</a></li>
                 <li><a asp-controller="Home" asp-action="Help">Помощь</a></li><!--добавить сраницу помощь-->
             </ul>
@@ -46,7 +47,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2019 - MVC</p>
+            <p>&copy; 2019 - Интерактивная афиша Воронежа</p>
             <p>г.Воронеж</p>
         </footer>
     </div>

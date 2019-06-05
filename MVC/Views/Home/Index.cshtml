@@ -1,11 +1,12 @@
 ﻿@model IEnumerable<MVC.Models.Area>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Главная";
 }
 
 <h2>Главная</h2>
 
 <p>Сайт предназначен для поиска мероприятий и мест отдыха города Воронежа.</p>
 
-<a asp-controller="Home" asp-action="Events">Афиша мероприятий</a>
+<a type="button" class="btn btn-primary btn-square" asp-controller="Home" asp-action="Events">Афиша мероприятий</a>
+
