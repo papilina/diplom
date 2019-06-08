@@ -60,12 +60,8 @@ dl dt {
     height: 200px;
     text-align: center;
     font-size: 18px;
-    padding-left: 0;
-    padding-right: 0;
     background-image: url(../images/afisha.png);
     background-repeat: no-repeat;
     background-size: 100%;
     white-space: normal;
-    color: blue;
-  
 }
