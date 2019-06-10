@@ -15,10 +15,10 @@ namespace MVC
                 context.Users.AddRange(
                  new User
                  {
-                     Login = "test",
-                     Password = "Xaej5liM",
-                     Name = "test",
-                     Email = "test@yandex.ru"
+                     UserName = "test",
+                     Password = "Xaej5liM!",
+                     Email = "test@yandex.ru",
+                     NormalizedEmail = "TEST@YANDEX.RU"
                  }
                 );
                 context.SaveChanges();

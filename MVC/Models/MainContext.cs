@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MVC.Models;
 using MVC.ViewModels;
@@ -17,6 +18,7 @@ namespace MVC.Models
         public DbSet<Area> Areas { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<Visit> Visits { get; set; }
+
 
         public MainContext(DbContextOptions<MainContext> options): base(options)
         {

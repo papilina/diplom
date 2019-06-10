@@ -52,7 +52,7 @@ namespace MVC.Controllers
         {
             try
             {
-                evaluation.User = db.Users.FirstOrDefault(s => s.Id == evaluation.UserId);
+                evaluation.User = db.Users.FirstOrDefault(s => Int32.Parse(s.Id) == evaluation.UserId);
                 evaluation.Place = db.Places.FirstOrDefault(s => s.Id == evaluation.PlaceId);
                 db.Evaluations.Add(evaluation);
                 db.SaveChanges();

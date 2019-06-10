@@ -51,7 +51,7 @@ namespace MVC.Controllers
         {
             try
             {
-                feedback.User = db.Users.FirstOrDefault(s => s.Id == feedback.UserId);
+                feedback.User = db.Users.FirstOrDefault(s => Int32.Parse(s.Id) == feedback.UserId);
                 feedback.Place = db.Places.FirstOrDefault(s => s.Id == feedback.PlaceId);
                 db.Feedbacks.Add(feedback);
                 db.SaveChanges();
