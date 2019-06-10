@@ -15,10 +15,10 @@ namespace MVC
                 context.Users.AddRange(
                  new User
                  {
-                     UserName = "test",
+                     UserName = "admin",
                      Password = "Xaej5liM!",
-                     Email = "test@yandex.ru",
-                     NormalizedEmail = "TEST@YANDEX.RU"
+                     Email = "admin@test.ru",
+                     NormalizedEmail = "ADMIN@TEST.RU"
                  }
                 );
                 context.SaveChanges();
@@ -29,7 +29,15 @@ namespace MVC
                 new PlaceType
                 {
                     Name = "Кинотеатр"
-                }    
+                },
+                new PlaceType
+                {
+                    Name = "Парк"
+                },
+                new PlaceType
+                {
+                    Name = "Кафе"
+                }
                 );
                 context.SaveChanges();
             }
@@ -40,7 +48,27 @@ namespace MVC
                 new Area
                 {
                     Name = "Коминтерновский"
-                }
+                },
+                new Area
+                {
+                    Name = "Центральный"
+                },
+                new Area
+                {
+                    Name = "Советский"
+                },
+                new Area
+                {
+                    Name = "Левобережный"
+                },
+                new Area
+                {
+                    Name = "Железнодорожный"
+                },
+                new Area
+                {
+                    Name = "Ленинский"
+                }          
                 );
                 context.SaveChanges();
             }
