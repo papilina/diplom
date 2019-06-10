@@ -55,7 +55,9 @@ namespace MVC
                     Address = "Проспект Нариманова",
                     Area = context.Areas.First(),
                     Email = "admin@pp.ru",
-                    Site = "pp.ru"
+                    Site = "http://www.pp.ru",
+                    StartWork = new DateTime(2019, 06, 10, 08, 00, 00),
+                    EndWork = new DateTime(2019, 06, 10, 23, 00, 00),
                 }
                 );
                 context.SaveChanges();

@@ -66,6 +66,9 @@ namespace MVC.Controllers
             var areaId = Int32.Parse(Request.Form["AreaId"][0]);
             var placetypeId = Int32.Parse(Request.Form["PlacetypeId"][0]);
             var openNow = Request.Form["OpenNow"][0];
+            var startTime = Convert.ToDateTime(Request.Form["StartTime"][0]).TimeOfDay;
+            var EndTime = Convert.ToDateTime(Request.Form["EndTime"][0]).TimeOfDay;
+
             var places = db.Places.Include(s => s.PlaceType).Where(s => s.AreaId == areaId && s.PlaceTypeId == placetypeId);
 
             var currentTime = DateTime.Now.TimeOfDay;
@@ -77,6 +80,12 @@ namespace MVC.Controllers
             var open_places = from p in places
                               where currentTime >= p.StartWork.TimeOfDay && currentTime < p.EndWork.TimeOfDay
                               select p;
+                places = open_places;
+            } else
+            {
+                var open_places = from p in places
+                                  where startTime >= p.StartWork.TimeOfDay || EndTime < p.EndWork.TimeOfDay
+                                  select p;
                 places = open_places;
             }
 

@@ -8,20 +8,39 @@
 <h2>Мероприятия</h2>
 
 <div class="row">
-    <div class="col-md-12">
-        <form class="form-inline" asp-action="Find">
-            <div class="form-group">
-                <label class="control-label">Тип мероприятия</label>
-                <select class="form-control" asp-items="@(new SelectList(Model.PlaceTypes, "Id","Name"))" asp-for="PlacetypeId"></select>
+    <div class="col-sm-8">
+        <form asp-action="Find">
+            <div class="form-group row">
+                <label class="col-sm-2 control-label">Тип мероприятия</label>
+                <div class="col-sm-3">
+                    <select class="form-control" asp-items="@(new SelectList(Model.PlaceTypes, "Id","Name"))" asp-for="PlacetypeId"></select>
+                </div>
             </div>
-            <div class="form-group">
-                <label class="control-label">Районы</label>
-                <select class="form-control" asp-items="@(new SelectList(Model.Areas, "Id","Name"))" asp-for="AreaId"></select>
+            <div class="form-group row">
+                <label class="col-sm-2 control-label">Районы</label>
+                <div class="col-sm-3">
+                    <select class="form-control" asp-items="@(new SelectList(Model.Areas, "Id","Name"))" asp-for="AreaId"></select>
+                </div>
             </div>
-            <div class="form-group">
-                <label class="control-label">Открыт сейчас</label>
-                <input class="form-control" type="checkbox" style="width:33px; height:33px;" asp-for="OpenNow" />
+            <div class="form-group row">
+                <label class="col-sm-2 control-label">Открыт сейчас</label>
+                <div class="col-sm-2">
+                    <input class="form-control" type="checkbox" style="width:33px; height:33px;" asp-for="OpenNow" />
+                </div>
             </div>
+            <div class="form-group row">
+                <label class="col-sm-2 control-label">C</label>
+                <div class="col-sm-2">
+                    <input asp-for="StartTime" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 control-label">По</label>
+                <div class="col-sm-2">
+                    <input asp-for="EndTime" class="form-control" />
+                </div>
+            </div>
+
             <button type="submit" class="btn btn-primary">Найти</button>
             <div class="form-group" style="margin-top: 15px;">
                 @foreach (PlaceType p in Model.PlaceTypes)
