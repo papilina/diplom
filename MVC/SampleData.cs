@@ -18,7 +18,8 @@ namespace MVC
                      UserName = "admin",
                      Password = "Xaej5liM!",
                      Email = "admin@test.ru",
-                     NormalizedEmail = "ADMIN@TEST.RU"
+                     NormalizedEmail = "ADMIN@TEST.RU",
+                     PasswordHash = "AQAAAAEAACcQAAAAELuO5Yryhq4eYDZaq7tlWUKg4nNjvNvyyriw0oduR+6Ykbvn/BzCXsIUZ68THaG09w==",
                  }
                 );
                 context.SaveChanges();
@@ -78,14 +79,15 @@ namespace MVC
                 context.Places.AddRange(
                 new Place
                 {
-                    Name = "Парк Победы",
-                    PlaceType = context.PlaceTypes.First(),
-                    Address = "Проспект Нариманова",
-                    Area = context.Areas.First(),
-                    Email = "admin@pp.ru",
-                    Site = "http://www.pp.ru",
+                    Name = "Максимир",
+                    PlaceType = context.PlaceTypes.Single(s => s.Name == "Кинотеатр"),
+                    Address = "Ленинский проспект, 174",
+                    Area = context.Areas.Single(s => s.Name == "Железнодорожный"),
+                    Email = "admin@maxi-mir.ru",
+                    Site = "http://maxi-mir.ru",
                     StartWork = new DateTime(2019, 06, 10, 08, 00, 00),
                     EndWork = new DateTime(2019, 06, 10, 23, 00, 00),
+                    Phone = "233‑37-77"
                 },
                 new Place
                 { 
@@ -97,6 +99,13 @@ namespace MVC
                     StartWork = new DateTime(2019, 06, 10, 07, 00, 00),
                     EndWork = new DateTime(2019, 06, 10, 23, 30, 00),
                     Phone = "239‑03-50"
+                },
+                new Place
+                {
+                    Name = "Алые паруса",
+                    PlaceType = context.PlaceTypes.Single(s => s.Name == "Парк"),
+                    Address = "Арзамасская, 4А",
+                    Area = context.Areas.Single(s => s.Name == "Левобережный"),
                 }
                 );
                 context.SaveChanges();

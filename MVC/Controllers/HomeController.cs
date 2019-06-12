@@ -68,7 +68,7 @@ namespace MVC.Controllers
             var startTime = Convert.ToDateTime(Request.Form["StartTime"][0]).TimeOfDay;
             var EndTime = Convert.ToDateTime(Request.Form["EndTime"][0]).TimeOfDay;
 
-            IQueryable<Place> places = db.Places;
+            IQueryable<Place> places = db.Places.Include(s => s.PlaceType);
             if (areaId != 0 && placetypeId != 0)
             {
                 places = db.Places.Include(s => s.PlaceType).Where(s => s.AreaId == areaId && s.PlaceTypeId == placetypeId);
@@ -93,7 +93,7 @@ namespace MVC.Controllers
             else
             {
                 var open_places = from p in places
-                                  where startTime >= p.StartWork.TimeOfDay || EndTime < p.EndWork.TimeOfDay
+                                  where startTime >= p.StartWork.TimeOfDay && EndTime < p.EndWork.TimeOfDay
                                   select p;
                 places = open_places;
             }
