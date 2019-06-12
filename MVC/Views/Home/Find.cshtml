@@ -1,0 +1,40 @@
+﻿@model MVC.ViewModels.FindViewModel
+@{
+    ViewData["Title"] = "Find";
+}
+
+<h2>Find</h2>
+
+
+<div>
+    <label class="control-label">Район</label>
+    <select class="form-control" asp-items="@(new SelectList(Model.Areas, "Id","Name"))" onchange="this.form.submit()"></select>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Время начала работы</th>
+            <th>Время окончания работы</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Places)
+        {
+            string startWorkValue = item.StartWork.ToShortTimeString();
+            string endWorkValue = item.EndWork.ToShortTimeString();
+            <tr onclick="window.location.href='@Url.Action("Details", "Place", new {id = item.Id })'">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => startWorkValue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => endWorkValue)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

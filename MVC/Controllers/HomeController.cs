@@ -21,8 +21,7 @@ namespace MVC.Controllers
         }
         public IActionResult Index()
         {
-            ViewBag.Areas = new SelectList(db.Areas, "Id", "Name");
-            return View(db.Areas.ToList());
+            return View();
         }
 
         public IActionResult Contact()
@@ -69,19 +68,29 @@ namespace MVC.Controllers
             var startTime = Convert.ToDateTime(Request.Form["StartTime"][0]).TimeOfDay;
             var EndTime = Convert.ToDateTime(Request.Form["EndTime"][0]).TimeOfDay;
 
-            var places = db.Places.Include(s => s.PlaceType).Where(s => s.AreaId == areaId && s.PlaceTypeId == placetypeId);
-
-            var currentTime = DateTime.Now.TimeOfDay;
-
-            var areas = db.Areas.ToList();
+            IQueryable<Place> places = db.Places;
+            if (areaId != 0 && placetypeId != 0)
+            {
+                places = db.Places.Include(s => s.PlaceType).Where(s => s.AreaId == areaId && s.PlaceTypeId == placetypeId);
+            }
+            else if (areaId == 0 && placetypeId != 0)
+            {
+                places = db.Places.Include(s => s.PlaceType).Where(s => s.PlaceTypeId == placetypeId);
+            }
+            else if (areaId !=0 && placetypeId == 0)
+            {
+                places = db.Places.Include(s => s.PlaceType).Where(s => s.AreaId == areaId);
+            }     
 
             if (openNow == "true")
             {
-            var open_places = from p in places
-                              where currentTime >= p.StartWork.TimeOfDay && currentTime < p.EndWork.TimeOfDay
-                              select p;
+                var currentTime = DateTime.Now.TimeOfDay;
+                var open_places = from p in places
+                                  where currentTime >= p.StartWork.TimeOfDay && currentTime < p.EndWork.TimeOfDay
+                                  select p;
                 places = open_places;
-            } else
+            }
+            else
             {
                 var open_places = from p in places
                                   where startTime >= p.StartWork.TimeOfDay || EndTime < p.EndWork.TimeOfDay
@@ -89,7 +98,7 @@ namespace MVC.Controllers
                 places = open_places;
             }
 
-            IndexPlaceInArea vm = new IndexPlaceInArea { Areas = areas, Places = places, AreaId = areaId, PlacetypeId = placetypeId };
+            IndexPlaceInArea vm = new IndexPlaceInArea { Areas = db.Areas.ToList(), Places = places, AreaId = areaId, PlacetypeId = placetypeId };
 
             return View("IndexPlaceInArea", vm);
         }

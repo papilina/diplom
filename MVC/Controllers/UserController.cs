@@ -161,7 +161,7 @@ namespace MVC.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Неверный логин или пароль");
                     return View(model);
                 }
             }

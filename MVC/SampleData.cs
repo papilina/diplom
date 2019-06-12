@@ -68,7 +68,7 @@ namespace MVC
                 new Area
                 {
                     Name = "Ленинский"
-                }          
+                }
                 );
                 context.SaveChanges();
             }
@@ -86,6 +86,17 @@ namespace MVC
                     Site = "http://www.pp.ru",
                     StartWork = new DateTime(2019, 06, 10, 08, 00, 00),
                     EndWork = new DateTime(2019, 06, 10, 23, 00, 00),
+                },
+                new Place
+                { 
+                    Name = "Спартак",
+                    PlaceType = context.PlaceTypes.Single(s => s.Name == "Кинотеатр"),
+                    Address = "Площадь Ленина, 13",
+                    Area = context.Areas.Single(s => s.Name == "Центральный"),
+                    Site = "http://kinospartak.ru",
+                    StartWork = new DateTime(2019, 06, 10, 07, 00, 00),
+                    EndWork = new DateTime(2019, 06, 10, 23, 30, 00),
+                    Phone = "239‑03-50"
                 }
                 );
                 context.SaveChanges();
@@ -131,6 +142,6 @@ namespace MVC
                 context.SaveChanges();
             }
         }
-       
+
     }
 }
