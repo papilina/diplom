@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace MVC.ViewModels
 {
-    public class FindViewModel
+    public class PlacesByTypeViewModel
     {
         public IEnumerable<Place> Places { get; set; }
-        public IEnumerable<Area> Areas { get; set; }
     }
 }

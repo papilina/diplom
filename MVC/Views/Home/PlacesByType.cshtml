@@ -1,23 +1,16 @@
 ﻿@using MVC.ViewModels
 @using MVC.Models
-@model IndexPlaceInArea
+@model PlacesByTypeViewModel
 
 @{
     ViewData["Title"] = "Результаты поиска";
 }
 
-<h3>Результаты поиска</h3>
+<h3>@ViewData["Title"]</h3>
 
 <div class="row">
     <div class="col-md-6">
-        <form asp-action="IndexPlaceInArea">
-            <input type="hidden" asp-for="PlacetypeId" value="@Model.PlacetypeId">
-            <div>
-                <label class="control-label">Район</label>
-                <select class="form-control" asp-for="AreaId" asp-items="@(new SelectList(Model.Areas, "Id","Name"))" onchange="this.form.submit()"></select>
-            </div>
-        </form>
-
+        <a asp-action="Events">Вернуться к списку</a>
         <table class="table table-striped">
             <thead>
                 <tr>

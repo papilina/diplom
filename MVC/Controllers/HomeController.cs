@@ -45,10 +45,27 @@ namespace MVC.Controllers
             var areaId = Int32.Parse(Request.Form["areaId"][0]);
             Area area = db.Areas.FirstOrDefault(s => s.Id == areaId);
 
-            var placetypeId = Int32.Parse(Request.Form["placetypeId"][0]);
-            var places = db.Places.Include(s => s.PlaceType).Where(s => s.AreaId == areaId && s.PlaceTypeId == placetypeId);
+            var placetypeId = Int32.Parse(Request.Form["PlacetypeId"][0]);
+
+            IQueryable<Place> places;
+            if (placetypeId != 0)
+            {
+                 places = db.Places.Include(s => s.PlaceType).Where(s => s.AreaId == areaId && s.PlaceTypeId == placetypeId);
+            } else
+            {
+                 places = db.Places.Include(s => s.PlaceType).Where(s => s.AreaId == areaId);
+            }
+            
 
             IndexPlaceInArea vm = new IndexPlaceInArea { Areas = db.Areas.ToList(), Places = places, AreaId = areaId, PlacetypeId = placetypeId };
+            return View(vm);
+        }
+
+
+        public IActionResult PlacesByType(int placetypeId)
+        {
+            var places = db.Places.Include(s => s.PlaceType).Where(s => s.PlaceTypeId == placetypeId);
+            PlacesByTypeViewModel vm = new PlacesByTypeViewModel { Places = places };
             return View(vm);
         }
 
@@ -90,7 +107,7 @@ namespace MVC.Controllers
                                   select p;
                 places = open_places;
             }
-            else
+            else if (areaId != 0 && placetypeId != 0)
             {
                 var open_places = from p in places
                                   where startTime >= p.StartWork.TimeOfDay && EndTime < p.EndWork.TimeOfDay
