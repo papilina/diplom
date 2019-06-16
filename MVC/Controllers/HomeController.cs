@@ -64,6 +64,8 @@ namespace MVC.Controllers
 
         public IActionResult PlacesByType(int placetypeId)
         {
+            ViewBag.Areas = new SelectList(db.Areas, "Id", "Name");
+            ViewBag.PlaceTypes = new SelectList(db.PlaceTypes, "Id", "Name");
             var places = db.Places.Include(s => s.PlaceType).Where(s => s.PlaceTypeId == placetypeId);
             PlacesByTypeViewModel vm = new PlacesByTypeViewModel { Places = places };
             return View(vm);
@@ -81,9 +83,10 @@ namespace MVC.Controllers
         {
             var areaId = Int32.Parse(Request.Form["AreaId"][0]);
             var placetypeId = Int32.Parse(Request.Form["PlacetypeId"][0]);
-            var openNow = Request.Form["OpenNow"][0];
-            var startTime = Convert.ToDateTime(Request.Form["StartTime"][0]).TimeOfDay;
-            var EndTime = Convert.ToDateTime(Request.Form["EndTime"][0]).TimeOfDay;
+            var openNow = string.IsNullOrEmpty(Request.Form["OpenNow"]) ? "false" : Request.Form["OpenNow"][0];
+            /*var openNow = Request.Form["OpenNow"][0] ? Request.Form["OpenNow"][0] : false;*/
+            var startTime = Request.Form["StartTime"][0].ToString() != "" ? Convert.ToDateTime(Request.Form["StartTime"][0]).TimeOfDay : (TimeSpan?) null;
+            var EndTime = Request.Form["EndTime"][0] != "" ? Convert.ToDateTime(Request.Form["EndTime"][0]).TimeOfDay : (TimeSpan?) null;
 
             IQueryable<Place> places = db.Places.Include(s => s.PlaceType);
             if (areaId != 0 && placetypeId != 0)
