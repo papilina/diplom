@@ -68,8 +68,6 @@ namespace MVC.Controllers
             ViewBag.PlaceTypes = new SelectList(db.PlaceTypes, "Id", "Name");
             var places = db.Places.Include(s => s.PlaceType).Where(s => s.PlaceTypeId == placetypeId);
             return View(places);
-            /*PlacesByTypeViewModel vm = new PlacesByTypeViewModel { Places = places };
-            return View(vm);*/
         }
 
         public IActionResult Events()

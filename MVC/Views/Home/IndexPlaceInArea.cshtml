@@ -45,14 +45,24 @@
     <div class="col-md-6">
         <form asp-action="IndexPlaceInArea">
             <input type="hidden" asp-for="PlacetypeId">
-            <div lass="form-group row">
-                <label class="control-label col-md-1">Район</label>
-                <div class="col-md-4">
-                    <select class="form-control" asp-for="AreaId" asp-items="@(new SelectList(Model.Areas, "Id","Name"))" onchange="this.form.submit()"> </select>
+
+            <div class="form-group row">
+                <label class="control-label col-md-2">Район</label>
+                <div class="col-md-5">
+                    <select class="form-control" asp-for="AreaId" asp-items="@(new SelectList(Model.Areas, "Id","Name"))" onchange="this.form.submit()">
+                        <option value="0">Все</option>
+                    </select>
                 </div>
             </div>
         </form>
+    </div>
+</div>
 
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h2 class="panel-title">@ViewData["Title"]</h2>
+    </div>
+    <div class="panel-body">
         <table class="table table-striped">
             <thead>
                 <tr>
