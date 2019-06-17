@@ -11,13 +11,33 @@
     <h4>Место</h4>
     <hr />
     <dl>
+        @{
+            string startWorkValue = @Model.StartWork.ToShortTimeString();
+            string endWorkValue = @Model.EndWork.ToShortTimeString();
+        }
+        <dt>Тип мероприятия </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PlaceType.Name)
+        </dd>
         <dt>Название</dt>
         <dd>
             @Html.DisplayFor(model => model.Name)
         </dd>
+        <dt>Район</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Area.Name)
+        </dd>
         <dt>Адрес</dt>
         <dd>
             @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt>Телефон</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+        <dt>Сайт</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Site)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Email)
@@ -25,17 +45,13 @@
         <dd>
             @Html.DisplayFor(model => model.Email)
         </dd>
-        <dt>Сайт</dt>
+        <dt>Начало работы</dt>
         <dd>
-            @Html.DisplayFor(model => model.Site)
+            @Html.DisplayFor(model => startWorkValue)
         </dd>
-        <dt>Место</dt>
+        <dt>Конец работы</dt>
         <dd>
-            @Html.DisplayFor(model => model.PlaceType.Name)
-        </dd>
-        <dt>Район</dt>
-        <dd>
-            @Html.DisplayFor(model => model.Area.Name)
+            @Html.DisplayFor(model => endWorkValue)
         </dd>
     </dl>
     

@@ -6,13 +6,13 @@
 
 <h2>Создать</h2>
 
-<h4>Место</h4>
+<h4>Мероприятие</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div class="form-group">
-                <label class="control-label">Тип места</label>
+                <label class="control-label">Тип мероприятия</label>
                 @Html.DropDownList("PlaceTypeId", ViewBag.PlaceTypes, "Выберите тип места",
                                     htmlAttributes: new { @class = "form-control" })
                 <span asp-validation-for="PlaceTypeId" class="text-danger"></span>
@@ -35,19 +35,14 @@
                 <span asp-validation-for="Address" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label class="control-label">Начало работы</label>
-                <input asp-for="StartWork" class="form-control"  />
-                <span asp-validation-for="StartWork" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label class="control-label">Конец работы</label>
-                <input asp-for="EndWork" class="form-control" />
-                <span asp-validation-for="EndWork" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label class="control-label">Телефон</label>
                 <input asp-for="Phone" class="form-control" />
                 <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Сайт</label>
+                <input asp-for="Site" class="form-control" />
+                <span asp-validation-for="Site" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
@@ -55,11 +50,15 @@
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label class="control-label">Сайт</label>
-                <input asp-for="Site" class="form-control" />
-                <span asp-validation-for="Site" class="text-danger"></span>
+                <label class="control-label">Начало работы</label>
+                <input asp-for="StartWork" class="form-control" />
+                <span asp-validation-for="StartWork" class="text-danger"></span>
             </div>
-
+            <div class="form-group">
+                <label class="control-label">Конец работы</label>
+                <input asp-for="EndWork" class="form-control" />
+                <span asp-validation-for="EndWork" class="text-danger"></span>
+            </div>
 
             <div class="form-group">
                 <input type="submit" value="Создать" class="btn btn-default" />
