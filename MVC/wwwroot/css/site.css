@@ -47,10 +47,11 @@ dl dt {
     padding-right: 0;
     font-size: 18px;
     font-weight: bold;
-    background-image: url(../images/spartak.jpg);
     background-repeat: no-repeat;
     white-space: normal;
-
+}
+#placetypes1 {
+    background-image: url(../images/spartak.jpg);
 }
 
 .big-checkbox {
