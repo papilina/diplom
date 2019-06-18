@@ -4,12 +4,12 @@
     ViewData["Title"] = "Подробности";
 }
 
-<h2>Подробности</h2>
+<h3>Информация о мероприятии</h3>
 
 <div>
-    <h4>Мероприятие</h4>
+   @* <h4>Мероприятие</h4>*@
     <hr />
-    <dl class="dl-horizontal">
+    <dl class="dl-horizontal" style="font-size:16px">
         @{
             string startWorkValue = @Model.StartWork.ToShortTimeString();
             string endWorkValue = @Model.EndWork.ToShortTimeString();

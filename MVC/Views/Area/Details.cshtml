@@ -1,15 +1,15 @@
 ﻿@model MVC.Models.Area
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Подробности";
 }
 
-<h2>Подробности</h2>
+<h4>Информация о районе</h4>
 
 <div>
-    <h4>Район</h4>
-    <hr />
+    
     <dl>
+
         <dt>Название</dt>
         <dd>
             @Html.DisplayFor(model => model.Name)

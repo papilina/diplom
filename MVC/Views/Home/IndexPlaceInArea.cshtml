@@ -6,9 +6,12 @@
     ViewData["Title"] = "Результаты поиска";
 }
 
-<div class="panel panel-default">
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h4 class="panel-title">Поиск по параметрам</h4>
+    </div>
     <div class="panel-body">
-        <form asp-action="Find" class="form-inline">
+        <form asp-action="Find" class="form-inline" style="width:100%">
             <div class="form-group">
                 <label class="control-label">Тип мероприятия</label>
                 <select class="form-control" asp-items="@ViewBag.PlaceTypes" name="PlacetypeId">
@@ -59,7 +62,7 @@
 
 <div class="panel panel-info">
     <div class="panel-heading">
-        <h2 class="panel-title">@ViewData["Title"]</h2>
+        <h4 class="panel-title">@ViewData["Title"]</h4>
     </div>
     <div class="panel-body">
         <table class="table table-striped">

@@ -2,8 +2,11 @@
     ViewData["Title"] = "Главная";
 }
 
-<h2>@ViewData["Title"]</h2>
+@*<h2>@ViewData["Title"]</h2>*@
+<h3>Добро пожаловать на сайт "Интерактивная афиша Воронежа"</h3>
+<p><img src="~/images/puppet_theater_kuzsvetlaya.jpg" height="300"></p>
 
-<p>Сайт предназначен для поиска мероприятий и мест отдыха города Воронежа.</p>
+<p><font size="3">Данный сайт предназначен для поиска мероприятий и мест отдыха города Воронежа. </font></p>
+<p><font size="3">Перейти к поиску <a asp-controller="Home" asp-action="Events" style="text-decoration:underline">мероприятий</a></font></p>
 
-<button class="btn btn-square" onclick="window.location.href='@Url.Action("Events")'">Афиша мероприятий</button>
+@*<button class="btn btn-square" onclick="window.location.href='@Url.Action("Events")'">Афиша мероприятий</button>*@
