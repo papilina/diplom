@@ -48,7 +48,7 @@
         <div class="form-group" style="margin-top: 15px;">
             @foreach (PlaceType p in Model.PlaceTypes)
             {
-                <button type="button" class="btn btn-primary btn-circle" onclick="window.location.href='@Url.Action("PlacesByType", "Home", new {placetypeId = @p.Id})'">@p.Name</button>
+                <button type="button" class="btn btn-primary btn-circle" id="placetypes@(p.Id)" onclick="window.location.href='@Url.Action("PlacesByType", "Home", new {placetypeId = @p.Id})'">@p.Name</button> 
             }
         </div>
     </div>
