@@ -55,7 +55,9 @@ namespace MVC.Controllers
             {
                  places = db.Places.Include(s => s.PlaceType).Where(s => s.AreaId == areaId);
             }
-            
+
+            ViewBag.Areas = new SelectList(db.Areas, "Id", "Name");
+            ViewBag.PlaceTypes = new SelectList(db.PlaceTypes, "Id", "Name");
 
             IndexPlaceInArea vm = new IndexPlaceInArea { Areas = db.Areas.ToList(), Places = places, AreaId = areaId, PlacetypeId = placetypeId };
             return View(vm);
@@ -108,7 +110,7 @@ namespace MVC.Controllers
                                   select p;
                 places = open_places;
             }
-            else if (areaId != 0 && placetypeId != 0)
+            else
             {
                 var open_places = from p in places
                                   where startTime >= p.StartWork.TimeOfDay && EndTime < p.EndWork.TimeOfDay
