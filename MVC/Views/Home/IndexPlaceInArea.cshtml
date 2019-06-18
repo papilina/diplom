@@ -11,7 +11,7 @@
         <h4 class="panel-title">Поиск по параметрам</h4>
     </div>
     <div class="panel-body">
-        <form asp-action="Find" class="form-inline" style="width:100%">
+        <form asp-action="Find" class="form-inline">
             <div class="form-group">
                 <label class="control-label">Тип мероприятия</label>
                 <select class="form-control" asp-items="@ViewBag.PlaceTypes" name="PlacetypeId">
@@ -30,11 +30,11 @@
             </div>
             <div class="form-group">
                 <label class="control-label">C</label>
-                <input name="StartTime" class="form-control" type="time" />
+                <input name="StartTime" class="form-control" type="time"  value="00:00" />
             </div>
             <div class="form-group">
                 <label class="control-label">По</label>
-                <input name="EndTime" class="form-control" type="time" />
+                <input name="EndTime" class="form-control" type="time" value="00:00" />
             </div>
 
             <button type="submit" class="btn btn-primary">Найти</button>
