@@ -47,14 +47,20 @@ namespace MVC.Controllers
 
             var placetypeId = Int32.Parse(Request.Form["PlacetypeId"][0]);
 
-            IQueryable<Place> places;
-            if (placetypeId != 0)
+            IQueryable<Place> places = db.Places.Include(s => s.PlaceType);
+            if (areaId != 0 && placetypeId != 0)
             {
-                 places = db.Places.Include(s => s.PlaceType).Where(s => s.AreaId == areaId && s.PlaceTypeId == placetypeId);
-            } else
-            {
-                 places = db.Places.Include(s => s.PlaceType).Where(s => s.AreaId == areaId);
+                places = db.Places.Include(s => s.PlaceType).Where(s => s.AreaId == areaId && s.PlaceTypeId == placetypeId);
             }
+            else if (areaId == 0 && placetypeId != 0)
+            {
+                places = db.Places.Include(s => s.PlaceType).Where(s => s.PlaceTypeId == placetypeId);
+            }
+            else if (areaId != 0 && placetypeId == 0)
+            {
+                places = db.Places.Include(s => s.PlaceType).Where(s => s.AreaId == areaId);
+            }
+
 
             ViewBag.Areas = new SelectList(db.Areas, "Id", "Name");
             ViewBag.PlaceTypes = new SelectList(db.PlaceTypes, "Id", "Name");
