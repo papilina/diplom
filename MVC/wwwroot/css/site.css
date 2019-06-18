@@ -45,16 +45,34 @@ dl dt {
     text-align: center;
     padding-left: 0;
     padding-right: 0;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     background-repeat: no-repeat;
     white-space: normal;
+    color: white;
+    text-shadow: black  1px 1px 0, black -1px -1px 0, 
+       black -1px 1px 0, black 1px -1px 0;
 }
 #placetypes1 {
-    background-image: url(../images/spartak.jpg);
+    background-image: url(../images/kino2.jpg);
 }
-
-.big-checkbox {
+#placetypes2 {
+    background-image: url(../images/opera.jpg);
+}
+#placetypes3 {
+    background-image: url(../images/музей.jpg);
+}
+#placetypes4 {
+    background-image: url(../images/кафе.jpg);
+}
+#placetypes5 {
+    background-image: url(../images/рц.jpg);
+    word-break: break-all;
+}
+#placetypes6 {
+    background-image: url(../images/концерт.jpg);
+}
+    .big-checkbox {
     width: 40px;
     height: 40px;
 }
