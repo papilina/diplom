@@ -94,18 +94,20 @@ dl dt {
     padding:1px;
     
 }
-.navbar a{
-    background-color: #0c69ad;
-    color: white;
-}
+    .navbar a {
+        background-color: #0c69ad;
+        color: white;
+        text-shadow: black 1px 1px 0, black -1px -1px 0, black -1px 1px 0, black 1px -1px 0;
+    }
     .navbar a:hover {
         color: black;
+        text-shadow:none;
     }
 .panel-title {
     margin-top: 0;
     margin-bottom: 0;
     font-size: 14px;
-    color: #0c69ad;
+    color: black;
 }
 .wrapping-description {
     float: left;
