@@ -1,6 +1,5 @@
 ﻿@using MVC.ViewModels
 @using MVC.Models
-@*@model PlacesByTypeViewModel*@
 @model IEnumerable<Place>
 
 @{
@@ -52,8 +51,8 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Тип мероприятия</th>
                     <th>Название</th>
+                    <th>Район</th>
                     <th>Время начала работы</th>
                     <th>Время окончания работы</th>
                 </tr>
@@ -63,20 +62,20 @@
                 {
                     string startWorkValue = item.StartWork.ToShortTimeString();
                     string endWorkValue = item.EndWork.ToShortTimeString();
-                <tr onclick="window.location.href='@Url.Action("Details", "Place", new {id = item.Id })'">
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PlaceType.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => startWorkValue)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => endWorkValue)
-                    </td>
-                </tr>
+                    <tr onclick="window.location.href='@Url.Action("Details", "Place", new {id = item.Id })'">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Area.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => startWorkValue)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => endWorkValue)
+                        </td>
+                    </tr>
                 }
             </tbody>
         </table>

@@ -30,7 +30,7 @@
             </div>
             <div class="form-group">
                 <label class="control-label">C</label>
-                <input name="StartTime" class="form-control" type="time"  value="00:00" />
+                <input name="StartTime" class="form-control" type="time" value="00:00" />
             </div>
             <div class="form-group">
                 <label class="control-label">По</label>
@@ -68,8 +68,8 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Тип мероприятия</th>
                     <th>Название</th>
+                    <th>Район</th>
                     <th>Время начала работы</th>
                     <th>Время окончания работы</th>
                 </tr>
@@ -81,10 +81,10 @@
                     string endWorkValue = item.EndWork.ToShortTimeString();
                     <tr onclick="window.location.href='@Url.Action("Details", "Place", new {id = item.Id })'">
                         <td>
-                            @Html.DisplayFor(modelItem => item.PlaceType.Name)
+                            @Html.DisplayFor(modelItem => item.Name)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Name)
+                            @Html.DisplayFor(modelItem => item.Area.Name)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => startWorkValue)

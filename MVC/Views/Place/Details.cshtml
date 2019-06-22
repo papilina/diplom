@@ -1,5 +1,6 @@
 ﻿@model MVC.Models.Place
 
+
 @{
     ViewData["Title"] = "Подробности";
 }
@@ -7,8 +8,6 @@
 <h3>Информация о мероприятии</h3>
 
 <div>
-   @* <h4>Мероприятие</h4>*@
-    <hr />
     <dl class="dl-horizontal" style="font-size:16px">
         @{
             string startWorkValue = @Model.StartWork.ToShortTimeString();
@@ -56,10 +55,17 @@
 
     </dl>
 </div>
+
 @if (User.Identity.IsAuthenticated)
 {
     <div>
         <a asp-action="Edit" asp-route-id="@Model.Id">Изменить</a> |
         <a asp-action="Index">Вернуться к списку</a>
+    </div>
+}
+else
+{
+    <div>
+        <a href="javascript: history.go(-1)">Назад</a>
     </div>
 }
