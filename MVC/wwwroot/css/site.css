@@ -106,4 +106,10 @@ dl dt {
     margin-bottom: 0;
     font-size: 14px;
     color: #0c69ad;
-}    
+}
+.wrapping-description {
+    float: left;
+    margin: 1px 9px 3px 0px;
+    border: 1px solid #286090;
+    padding: 6px;
+}
