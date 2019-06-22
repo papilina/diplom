@@ -90,7 +90,7 @@ namespace MVC.Controllers
         {
             var areaId = Int32.Parse(Request.Form["AreaId"][0]);
             var placetypeId = Int32.Parse(Request.Form["PlacetypeId"][0]);
-            var openNow = string.IsNullOrEmpty(Request.Form["OpenNow"]) ? "false" : "true";
+            var openNow = Request.Form["OpenNow"][0] == "true" || Request.Form["OpenNow"][0] == "on" ? "true" : "false";
             var startTime = Request.Form["StartTime"][0].ToString() != "" ? Convert.ToDateTime(Request.Form["StartTime"][0]).TimeOfDay : (TimeSpan?) null;
             var EndTime = Request.Form["EndTime"][0] != "" ? Convert.ToDateTime(Request.Form["EndTime"][0]).TimeOfDay : (TimeSpan?) null;
 
