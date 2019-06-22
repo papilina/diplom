@@ -13,7 +13,7 @@
         <form asp-action="Create">
             <div class="form-group">
                 <label class="control-label">Тип мероприятия</label>
-                @Html.DropDownList("PlaceTypeId", ViewBag.PlaceTypes, "Выберите тип места",
+                @Html.DropDownList("PlaceTypeId", ViewBag.PlaceTypes, "Выберите тип мероприятия",
                                     htmlAttributes: new { @class = "form-control" })
                 <span asp-validation-for="PlaceTypeId" class="text-danger"></span>
             </div>

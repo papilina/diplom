@@ -12,7 +12,7 @@ namespace MVC.Models
         [Required (ErrorMessage = "Не указано название")]
         public string Name { get; set; }
         public PlaceType PlaceType { get; set; }
-        [Required (ErrorMessage = "Не указан тип места")]
+        [Required (ErrorMessage = "Не указан тип мероприятия")]
         public int PlaceTypeId { get; set; }
         public string Address { get; set; }
         public Area Area { get; set; }
