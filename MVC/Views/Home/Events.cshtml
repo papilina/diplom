@@ -10,7 +10,7 @@
         <h2 class="panel-title">Поиск по параметрам</h2>
     </div>
     <div class="panel-body">
-        <form asp-action="Find" class="form-inline">
+        <form asp-action="Find" class="form-inline ">
             <div class="form-group">
                 <label class="control-label">Тип мероприятия</label>
                 <select class="form-control" asp-items="@(new SelectList(Model.PlaceTypes, "Id","Name"))" asp-for="PlacetypeId">
@@ -23,10 +23,12 @@
                     <option value="0">Все</option>
                 </select>
             </div>
+            <br />
             <div class="form-group">
                 <label class="control-label">Открыто сейчас</label>
                 <input class="form-control" style="width:33px; height:33px;" asp-for="OpenNow" />
             </div>
+            
             <div class="form-group">
                 <label class="control-label">C</label>
                 <input asp-for="StartTime" class="form-control" />
@@ -44,8 +46,8 @@
     <div class="panel-heading">
         <h4 class="panel-title">@ViewData["Title"]</h4>
     </div>
-    <div class="panel-body">
-        <div class="form-group" style="margin-top: 15px;">
+    <div class="panel-body ">
+        <div class="form-group col-md-7" style="margin-top: 15px;">
             @foreach (PlaceType p in Model.PlaceTypes)
             {
                 <button type="button" class="btn btn-primary btn-circle" id="placetypes@(p.Id)" onclick="window.location.href='@Url.Action("PlacesByType", "Home", new {placetypeId = @p.Id})'">@p.Name</button> 
